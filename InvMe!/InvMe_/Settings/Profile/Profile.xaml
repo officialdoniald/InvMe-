@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InvMe_.Settings.Profile.Profile"
+             Style="{StaticResource contentpage}"
+             >
+    <StackLayout>
+        <StackLayout IsVisible="True" x:Name="indicatorStackLayout" HorizontalOptions="Center" VerticalOptions="Center">
+            <ActivityIndicator x:Name="activityIndicator" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
+            <Label x:Name="loadingLabel" Style="{StaticResource comment}" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </StackLayout>
+        <ScrollView>
+            <StackLayout IsVisible="True" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" x:Name="mainStackLayout">
+                <Label Margin="20,0,20,0" x:Name="updateWelcome" Style="{StaticResource headertwo}" HorizontalOptions="Center"></Label>
+                <Entry Margin="20,0,20,0" x:Name="firstnameEntry" Style="{StaticResource entrystryle}" TextChanged="nameEntry_TextChanged"></Entry>
+                <Label Margin="20,0,20,0" x:Name="firstnameLabel" Style="{StaticResource comment}"></Label>
+                <Entry Margin="20,0,20,0" x:Name="lastnameEntry" Style="{StaticResource entrystryle}" TextChanged="lastnameEntry_TextChanged"></Entry>
+                <Label Margin="20,0,20,0" x:Name="lastnameLabel" Style="{StaticResource comment}"></Label>
+                <Entry Margin="20,0,20,0" Keyboard="Email" x:Name="emailEntry" Style="{StaticResource entrystryle}" TextChanged="emailEntry_TextChanged"></Entry>
+                <Label Margin="20,0,20,0" x:Name="emailLabel" Style="{StaticResource comment}"></Label>
+                <DatePicker Margin="20,0,20,0" Format="dd-MM-yyyy" x:Name="bornPicker" Style="{StaticResource pickerstryle}"></DatePicker>
+                <Label Margin="20,0,20,0" x:Name="bornLabel" Style="{StaticResource comment}"></Label>
+                <Label Margin="20,0,20,0" x:Name="updatepictureWelcome" Style="{StaticResource headertwo}" HorizontalOptions="Center"></Label>
+                <Button x:Name="updateProfileButton" Clicked="updateProfileButton_Clicked" Style="{StaticResource button}"></Button>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="275"></RowDefinition>
+                        <RowDefinition Height="100"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Button Grid.Column="0" Grid.Row="0" x:Name="takePhoto" Style="{StaticResource button}" Clicked="takePhoto_Clicked"></Button>
+                    <Button Grid.Column="1" Grid.Row="0" x:Name="selectPhoto" Style="{StaticResource button}" Clicked="selectPhoto_Clicked"></Button>
+                    <Label Margin="20,0,20,0" Grid.ColumnSpan="2" Grid.Row="1" x:Name="takeorselectaphotoLabel" Style="{StaticResource comment}"></Label>
+                    <Image HeightRequest="250" Margin="20,0,20,0" Grid.ColumnSpan="2" Grid.Row="2" x:Name="imageFromDevice" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                    <Button Grid.ColumnSpan="2" Grid.Row="3" x:Name="updatePictureButton" Clicked="updatePictureButton_Clicked" Style="{StaticResource button}"></Button>
+                </Grid>
+                <!--<controls:CircleImage x:Name="imageFromDevice" Grid.Row="0" Grid.ColumnSpan="2" Aspect="AspectFill" HorizontalOptions="Center" VerticalOptions="Center">
+                    <controls:CircleImage.WidthRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android, iOS">55</On>
+                            <On Platform="WinPhone">75</On>
+                        </OnPlatform>
+                    </controls:CircleImage.WidthRequest>
+                    <controls:CircleImage.HeightRequest>
+                        <OnPlatform x:TypeArguments="x:Double">
+                            <On Platform="Android, iOS">55</On>
+                            <On Platform="WinPhone">75</On>
+                        </OnPlatform>
+                    </controls:CircleImage.HeightRequest>
+                </controls:CircleImage>-->
+                <Label Margin="20,0,20,0" x:Name="updatepwWelcome" Style="{StaticResource headertwo}" HorizontalOptions="Center"></Label>
+                <Entry Margin="20,0,20,0" x:Name="originalpasswordEntry" Style="{StaticResource passwordentrystryle}"></Entry>
+                <Label Margin="20,0,20,0" x:Name="originalpasswordLabel" Style="{StaticResource comment}"></Label>
+                <Entry Margin="20,0,20,0" x:Name="passwordEntry" Style="{StaticResource passwordentrystryle}" TextChanged="passwordEntry_TextChanged"></Entry>
+                <Label Margin="20,0,20,0" x:Name="passwordLabel" Style="{StaticResource comment}"></Label>
+                <Entry Margin="20,0,20,0" x:Name="passwordagainEntry" Style="{StaticResource passwordentrystryle}"></Entry>
+                <Label Margin="20,0,20,0" x:Name="passwordagainLabel" Style="{StaticResource comment}"></Label>
+                <Button x:Name="updatePasswordButton" Clicked="updatePasswordButton_Clicked" Style="{StaticResource button}"></Button>
+            </StackLayout>
+        </ScrollView>
+        <Grid x:Name="bottomGrid" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Image Grid.Column="0" Grid.Row="0" Source="home.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="homeImage">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Grid.Column="1" Grid.Row="0" Source="add.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="addImage">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_1"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Source="calendar.png" Grid.Column="2" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" x:Name="joinedImage">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_2"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Grid.Column="3" Grid.Row="0" Source="hashtags.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="hashtagsImage">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_3"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+            <Image Grid.Column="4" Grid.Row="0" Source="settings.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="settingsImage">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_4"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                </Image.GestureRecognizers>
+            </Image>
+        </Grid>
+    </StackLayout>
+</ContentPage>

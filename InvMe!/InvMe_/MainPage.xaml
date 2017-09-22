@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:InvMe_"
+             x:Class="InvMe_.MainPage"
+             Style="{StaticResource contentpage}">
+    <StackLayout>
+        <StackLayout IsVisible="True" x:Name="indicatorStackLayout" HorizontalOptions="Center" VerticalOptions="Center">
+            <ActivityIndicator x:Name="activityIndicator" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
+            <Label Margin="20,0,20,0" x:Name="loadingLabel" Style="{StaticResource comment}" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </StackLayout>
+        <ScrollView>
+            <StackLayout IsVisible="True" x:Name="mainStackLayout" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75"></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Image Source="eventmarker.png" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                    <Image x:Name="townImage" IsVisible="True"  Source="town.png" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                    <Entry x:Name="hashtagEntry" Style="{StaticResource entrystryle}" Grid.Row="0" Grid.Column="1"></Entry>
+                    <Switch x:Name="onlineSwitch" Toggled="onlineSwitch_Toggled" Grid.Row="1" Grid.Column="1" HorizontalOptions="End" Margin="0,0,20,0"></Switch>
+                    <Label x:Name="onlineLabel" Style="{StaticResource comment}" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center"></Label>
+                    <Entry IsVisible="True" x:Name="townEntry" Style="{StaticResource entrystryle}" Grid.Row="2" Grid.Column="1"></Entry>
+                    <Button x:Name="searchButton" Style="{StaticResource button}" Clicked="Button_Clicked" Grid.Row="3" Grid.ColumnSpan="2"></Button>
+                </Grid>
+                <ListView Style="{StaticResource eventslistview}" ItemTapped="eventListView_ItemTapped" ItemsSource="{Binding bindableEventList}" x:Name="eventListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="75"></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Source="eventmarker.png" Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                                    <Image Source="town.png" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                                    <Image Source="datefrom.png" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                                    <Label Style="{StaticResource tappedtext}" Text="{Binding EVENTNAME}" Grid.Row="0" Grid.Column="1"/>
+                                    <Label Style="{StaticResource tappedtext}" Text="{Binding TOWN}" Grid.Row="1" Grid.Column="1"/>
+                                    <Label Style="{StaticResource tappedtext}" Text="{Binding FROM}" Grid.Row="2" Grid.Column="1"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout VerticalOptions="EndAndExpand">
+            <Grid x:Name="bottomGrid" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Grid.Column="0" Grid.Row="0" Source="home.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="homeImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="1" Grid.Row="0" Source="add.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="addImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_1"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="calendar.png" Grid.Column="2" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" x:Name="joinedImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_2"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="3" Grid.Row="0" Source="hashtags.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="hashtagsImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_3"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="4" Grid.Row="0" Source="settings.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="settingsImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_4"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

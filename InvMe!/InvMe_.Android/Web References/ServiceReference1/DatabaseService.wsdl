@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DatabaseService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_IDatabaseService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://invmewcf20170521114912.azurewebsites.net/DatabaseService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://invmewcf20170521114912.azurewebsites.net/DatabaseService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://invmewcf20170521114912.azurewebsites.net/DatabaseService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/InvMe.DAL.Model" />
+      <xsd:import schemaLocation="http://invmewcf20170521114912.azurewebsites.net/DatabaseService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDatabaseService_InsertUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUser" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_InsertUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_InsertEvents_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEvents" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_InsertEvents_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_InsertFriends_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertFriends" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_InsertFriends_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertFriendsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_InsertHashtagsM_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHashtagsM" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_InsertHashtagsM_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertHashtagsMResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_InsertAttended_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertAttended" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_InsertAttended_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertAttendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_DeleteEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEvent" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_DeleteEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_DeleteHashtag_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHashtag" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_DeleteHashtag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHashtagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_DeleteFriend_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFriend" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_DeleteFriend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFriendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_DeleteAttended_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAttended" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_DeleteAttended_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAttendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdateEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEvent" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdateEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdateHashtag_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHashtag" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdateHashtag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateHashtagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdateFriend_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFriend" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_UpdateFriend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFriendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetEvent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEvent" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetEvent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetHashtag_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHashtag" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetHashtag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHashtagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetFriend_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriend" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetFriend_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetAttended_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttended" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetAttended_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetUserByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByID" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetUserByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetUserByEMAIL_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByEMAIL" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetUserByEMAIL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserByEMAILResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetEventByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventByID" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetEventByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEventByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetHashtagByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHashtagByID" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetHashtagByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHashtagByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetFriendByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendByID" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetFriendByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFriendByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetAttendedByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendedByID" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetAttendedByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendedByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetAttendedByEventID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendedByEventID" />
+  </wsdl:message>
+  <wsdl:message name="IDatabaseService_GetAttendedByEventID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAttendedByEventIDResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDatabaseService">
+    <wsdl:operation name="InsertUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/InsertUser" message="tns:IDatabaseService_InsertUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/InsertUserResponse" message="tns:IDatabaseService_InsertUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEvents">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/InsertEvents" message="tns:IDatabaseService_InsertEvents_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/InsertEventsResponse" message="tns:IDatabaseService_InsertEvents_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertFriends">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/InsertFriends" message="tns:IDatabaseService_InsertFriends_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/InsertFriendsResponse" message="tns:IDatabaseService_InsertFriends_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertHashtagsM">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/InsertHashtagsM" message="tns:IDatabaseService_InsertHashtagsM_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/InsertHashtagsMResponse" message="tns:IDatabaseService_InsertHashtagsM_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAttended">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/InsertAttended" message="tns:IDatabaseService_InsertAttended_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/InsertAttendedResponse" message="tns:IDatabaseService_InsertAttended_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/DeleteUser" message="tns:IDatabaseService_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/DeleteUserResponse" message="tns:IDatabaseService_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/DeleteEvent" message="tns:IDatabaseService_DeleteEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/DeleteEventResponse" message="tns:IDatabaseService_DeleteEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHashtag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/DeleteHashtag" message="tns:IDatabaseService_DeleteHashtag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/DeleteHashtagResponse" message="tns:IDatabaseService_DeleteHashtag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFriend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/DeleteFriend" message="tns:IDatabaseService_DeleteFriend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/DeleteFriendResponse" message="tns:IDatabaseService_DeleteFriend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttended">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/DeleteAttended" message="tns:IDatabaseService_DeleteAttended_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/DeleteAttendedResponse" message="tns:IDatabaseService_DeleteAttended_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/UpdateUser" message="tns:IDatabaseService_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/UpdateUserResponse" message="tns:IDatabaseService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/UpdateEvent" message="tns:IDatabaseService_UpdateEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/UpdateEventResponse" message="tns:IDatabaseService_UpdateEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHashtag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/UpdateHashtag" message="tns:IDatabaseService_UpdateHashtag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/UpdateHashtagResponse" message="tns:IDatabaseService_UpdateHashtag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFriend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/UpdateFriend" message="tns:IDatabaseService_UpdateFriend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/UpdateFriendResponse" message="tns:IDatabaseService_UpdateFriend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetUser" message="tns:IDatabaseService_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetUserResponse" message="tns:IDatabaseService_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEvent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetEvent" message="tns:IDatabaseService_GetEvent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetEventResponse" message="tns:IDatabaseService_GetEvent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashtag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetHashtag" message="tns:IDatabaseService_GetHashtag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetHashtagResponse" message="tns:IDatabaseService_GetHashtag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFriend">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetFriend" message="tns:IDatabaseService_GetFriend_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetFriendResponse" message="tns:IDatabaseService_GetFriend_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttended">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetAttended" message="tns:IDatabaseService_GetAttended_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetAttendedResponse" message="tns:IDatabaseService_GetAttended_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetUserByID" message="tns:IDatabaseService_GetUserByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetUserByIDResponse" message="tns:IDatabaseService_GetUserByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEMAIL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetUserByEMAIL" message="tns:IDatabaseService_GetUserByEMAIL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetUserByEMAILResponse" message="tns:IDatabaseService_GetUserByEMAIL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEventByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetEventByID" message="tns:IDatabaseService_GetEventByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetEventByIDResponse" message="tns:IDatabaseService_GetEventByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHashtagByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetHashtagByID" message="tns:IDatabaseService_GetHashtagByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetHashtagByIDResponse" message="tns:IDatabaseService_GetHashtagByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetFriendByID" message="tns:IDatabaseService_GetFriendByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetFriendByIDResponse" message="tns:IDatabaseService_GetFriendByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendedByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetAttendedByID" message="tns:IDatabaseService_GetAttendedByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetAttendedByIDResponse" message="tns:IDatabaseService_GetAttendedByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendedByEventID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDatabaseService/GetAttendedByEventID" message="tns:IDatabaseService_GetAttendedByEventID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDatabaseService/GetAttendedByEventIDResponse" message="tns:IDatabaseService_GetAttendedByEventID_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDatabaseService" type="tns:IDatabaseService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertUser">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/InsertUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEvents">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/InsertEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertFriends">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/InsertFriends" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertHashtagsM">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/InsertHashtagsM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAttended">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/InsertAttended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvent">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/DeleteEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHashtag">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/DeleteHashtag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFriend">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/DeleteFriend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttended">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/DeleteAttended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvent">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/UpdateEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHashtag">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/UpdateHashtag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFriend">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/UpdateFriend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvent">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashtag">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetHashtag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriend">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetFriend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttended">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetAttended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByID">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetUserByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEMAIL">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetUserByEMAIL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventByID">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetEventByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashtagByID">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetHashtagByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendByID">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetFriendByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendedByID">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetAttendedByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendedByEventID">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetAttendedByEventID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_IDatabaseService" type="tns:IDatabaseService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_IDatabaseService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="InsertUser">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/InsertUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertEvents">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/InsertEvents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertFriends">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/InsertFriends" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertHashtagsM">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/InsertHashtagsM" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertAttended">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/InsertAttended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEvent">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/DeleteEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteHashtag">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/DeleteHashtag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFriend">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/DeleteFriend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAttended">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/DeleteAttended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEvent">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/UpdateEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateHashtag">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/UpdateHashtag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFriend">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/UpdateFriend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEvent">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetEvent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashtag">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetHashtag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriend">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetFriend" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttended">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetAttended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByID">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetUserByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEMAIL">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetUserByEMAIL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEventByID">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetEventByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHashtagByID">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetHashtagByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFriendByID">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetFriendByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendedByID">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetAttendedByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttendedByEventID">
+      <soap:operation soapAction="http://tempuri.org/IDatabaseService/GetAttendedByEventID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DatabaseService">
+    <wsdl:port name="BasicHttpBinding_IDatabaseService" binding="tns:BasicHttpBinding_IDatabaseService">
+      <soap:address location="http://invmewcf20170521114912.azurewebsites.net/DatabaseService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_IDatabaseService" binding="tns:BasicHttpsBinding_IDatabaseService">
+      <soap:address location="https://invmewcf20170521114912.azurewebsites.net/DatabaseService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

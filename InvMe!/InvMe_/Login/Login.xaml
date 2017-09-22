@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InvMe_.Login.Login"
+             Style="{StaticResource contentpage}">
+
+    <StackLayout>
+        <StackLayout IsVisible="False" x:Name="indicatorStackLayout" HorizontalOptions="Center" VerticalOptions="Center">
+            <ActivityIndicator x:Name="activityIndicator" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
+            <Label Margin="20,0,20,0" x:Name="loadingLabel" Style="{StaticResource comment}" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </StackLayout>
+        <StackLayout IsVisible="True" VerticalOptions="Center" x:Name="mainStackLayout">
+            <!--<Label x:Name="welcomeLabel" HorizontalOptions="Center" Style="{StaticResource applicationtitle}"/>-->
+            <Image HorizontalOptions="Center" VerticalOptions="Center" Source="logo.png" HeightRequest="200" WidthRequest="200"></Image>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Entry x:Name="emailEntry" Grid.Row="0" Grid.Column="1" Style="{StaticResource entrystryle}"/>
+                <Image Source="email.png" Grid.Row="0" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"></Image>
+                <Entry x:Name="passwordEntry" Grid.Row="1" Grid.Column="1" Style="{StaticResource passwordentrystryle}"/>
+                <Image Source="password.png" Grid.Row="1" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"></Image>
+            </Grid>
+            <!--<Label x:Name="emailLabel" Style="{StaticResource comment}"/>-->
+            <!--<Label x:Name="passwordLabel" Style="{StaticResource comment}"/>-->
+            <Button x:Name="signinButton" Style="{StaticResource button}" Clicked="signinButton_Clicked"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Column="0" Grid.Row="0" x:Name="forgotLabel" Style="{StaticResource tappedtext}" HorizontalOptions="End">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Label HorizontalOptions="Center" Grid.Column="1" Grid.Row="0" x:Name="signupLabel" Style="{StaticResource tappedtext}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1" NumberOfTapsRequired="1"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </Grid>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

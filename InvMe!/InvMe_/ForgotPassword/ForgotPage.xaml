@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Style="{StaticResource contentpage}"
+             x:Class="InvMe_.ForgotPassword.ForgotPage">
+
+    <StackLayout>
+        <StackLayout IsVisible="False" x:Name="indicatorStackLayout" HorizontalOptions="Center" VerticalOptions="Center">
+            <ActivityIndicator x:Name="activityIndicator" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
+            <Label Margin="20,0,20,0" x:Name="loadingLabel" Style="{StaticResource comment}" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </StackLayout>
+        <StackLayout IsVisible="True" VerticalOptions="Center" x:Name="mainStackLayout">
+            <!--<Label x:Name="forgotWelcome" Style="{StaticResource applicationtitle}"/>-->
+            <Image HorizontalOptions="Center" VerticalOptions="Center" Source="logo.png" HeightRequest="200" WidthRequest="200"></Image>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Entry Grid.Column="1" Grid.Row="0" x:Name="emailEntry" Style="{StaticResource entrystryle}"></Entry>
+                <Image Source="email.png" Grid.Row="0" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"></Image>
+            </Grid>
+            <Button x:Name="sendEmailButton" Clicked="sendEmailButton_Clicked" Style="{StaticResource button}"></Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

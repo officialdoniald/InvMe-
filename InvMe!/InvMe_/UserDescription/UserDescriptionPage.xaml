@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InvMe_.UserDescription.UserDescriptionPage" 
+             Style="{StaticResource contentpage}"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
+
+    <StackLayout>
+        <StackLayout IsVisible="False" x:Name="indicatorStackLayout" HorizontalOptions="Center" VerticalOptions="Center">
+            <ActivityIndicator x:Name="activityIndicator" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
+            <Label Margin="20,0,20,0" x:Name="loadingLabel" Style="{StaticResource comment}" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </StackLayout>
+        <ScrollView>
+            <StackLayout IsVisible="True" x:Name="generalStackLayout" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand">
+                <Label x:Name="userDescriptionWelcome" Style="{StaticResource applicationtitle}" HorizontalOptions="Center"/>
+                <!--<controls:CircleImage Margin="20,0,0,0" x:Name="profilepictureImage" Grid.Row="0" Grid.Column="0" Aspect="AspectFill">
+                        <controls:CircleImage.WidthRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android, iOS">100</On>
+                                <On Platform="WinPhone">120</On>
+                            </OnPlatform>
+                        </controls:CircleImage.WidthRequest>
+                        <controls:CircleImage.HeightRequest>
+                            <OnPlatform x:TypeArguments="x:Double">
+                                <On Platform="Android, iOS">100</On>
+                                <On Platform="WinPhone">120</On>
+                            </OnPlatform>
+                        </controls:CircleImage.HeightRequest>
+                    </controls:CircleImage>-->
+                <Image HeightRequest="220" Margin="20,0,0,0" x:Name="profilepictureImage" HorizontalOptions="Center"></Image>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="65"></RowDefinition>
+                        <RowDefinition Height="65"></RowDefinition>
+                        <RowDefinition Height="65"></RowDefinition>
+                        <RowDefinition Height="65"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Image Source="name.png" Grid.Row="0" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"></Image>
+                    <Label Style="{StaticResource comment}" x:Name="firstnameLabel" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                    <Image Source="borndate.png" Grid.Row="1" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"></Image>
+                    <Label Style="{StaticResource comment}" x:Name="bornDateLabel" Grid.Row="1" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                    <Image Source="email.png" Grid.Row="2" Grid.Column="0" HorizontalOptions="End" VerticalOptions="Center"></Image>
+                    <Label Style="{StaticResource comment}" x:Name="emailLabel" Grid.Row="2" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                    <Image IsVisible="False" x:Name="facebookLink" Source="facebook.png" Grid.Row="3" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Tapped="facebookButton_Clicked"
+                                NumberOfTapsRequired="1"></TapGestureRecognizer>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout VerticalOptions="EndAndExpand">
+            <Grid x:Name="bottomGrid" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Grid.Column="0" Grid.Row="0" Source="home.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="homeImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="1" Grid.Row="0" Source="add.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="addImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_1"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="calendar.png" Grid.Column="2" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" x:Name="joinedImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_2"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="3" Grid.Row="0" Source="hashtags.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="hashtagsImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_3"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="4" Grid.Row="0" Source="settings.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="settingsImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_4"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

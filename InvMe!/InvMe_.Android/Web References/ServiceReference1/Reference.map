@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DiscoveryClientResultsFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://invmewcf20170521114912.azurewebsites.net/DatabaseService.svc?xsd=xsd3" filename="DatabaseService.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.ContractReference" url="http://invmewcf20170521114912.azurewebsites.net/DatabaseService.svc?wsdl" filename="DatabaseService.wsdl" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.DiscoveryDocumentReference" url="http://invmewcf20170521114912.azurewebsites.net/DatabaseService.svc?disco" filename="DatabaseService.disco" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://invmewcf20170521114912.azurewebsites.net/DatabaseService.svc?xsd=xsd2" filename="DatabaseService0.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://invmewcf20170521114912.azurewebsites.net/DatabaseService.svc?xsd=xsd0" filename="DatabaseService1.xsd" />
+    <DiscoveryClientResult referenceType="System.Web.Services.Discovery.SchemaReference" url="http://invmewcf20170521114912.azurewebsites.net/DatabaseService.svc?xsd=xsd1" filename="DatabaseService2.xsd" />
+  </Results>
+</DiscoveryClientResultsFile>

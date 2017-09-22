@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/InvMe.DAL.Model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/InvMe.DAL.Model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://invmewcf20170521114912.azurewebsites.net/DatabaseService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BORNDATE" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="EMAIL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FACEBOOK" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FIRSTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LASTNAME" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PASSWORD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PROFILEPICTURE" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="Events">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EVENTNAME" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="FROM" type="q1:DateTimeOffset" />
+      <xs:element minOccurs="0" name="HOWMANY" type="xs:int" />
+      <xs:element minOccurs="0" name="MDESCRIPTION" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MEETINGCORD" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ONLINE" type="xs:int" />
+      <xs:element minOccurs="0" name="PLACE" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PLACECORD" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="TO" type="q2:DateTimeOffset" />
+      <xs:element minOccurs="0" name="TOWN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Events" nillable="true" type="tns:Events" />
+  <xs:complexType name="Friends">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GUID" type="xs:int" />
+      <xs:element minOccurs="0" name="SUID" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Friends" nillable="true" type="tns:Friends" />
+  <xs:complexType name="HashtagsM">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="HASHTAG" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TOWN" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UID" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="HashtagsM" nillable="true" type="tns:HashtagsM" />
+  <xs:complexType name="Attended">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="event_id" type="xs:int" />
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="user_id" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Attended" nillable="true" type="tns:Attended" />
+  <xs:complexType name="ArrayOfUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+  <xs:complexType name="ArrayOfEvents">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Events" nillable="true" type="tns:Events" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEvents" nillable="true" type="tns:ArrayOfEvents" />
+  <xs:complexType name="ArrayOfHashtagsM">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HashtagsM" nillable="true" type="tns:HashtagsM" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHashtagsM" nillable="true" type="tns:ArrayOfHashtagsM" />
+  <xs:complexType name="ArrayOfFriends">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Friends" nillable="true" type="tns:Friends" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFriends" nillable="true" type="tns:ArrayOfFriends" />
+  <xs:complexType name="ArrayOfAttended">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Attended" nillable="true" type="tns:Attended" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAttended" nillable="true" type="tns:ArrayOfAttended" />
+</xs:schema>

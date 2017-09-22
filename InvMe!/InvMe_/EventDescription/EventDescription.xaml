@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InvMe_.EventDescription.EventDescription"
+             Style="{StaticResource contentpage}"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
+
+    <StackLayout IsVisible="True" x:Name="mainStackLayout">
+        <StackLayout IsVisible="True" x:Name="indicatorStackLayout" HorizontalOptions="Center" VerticalOptions="Center">
+            <ActivityIndicator x:Name="activityIndicator" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
+            <Label Margin="20,0,20,0" x:Name="loadingLabel" Style="{StaticResource comment}" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </StackLayout>
+        <ScrollView>
+            <StackLayout IsVisible="True" HorizontalOptions="StartAndExpand" x:Name="generalSackLayout">
+                <Grid HorizontalOptions="StartAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="70"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Style="{StaticResource headertwo}" x:Name="eventNameLabel" Grid.ColumnSpan="2" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                    <Image x:Name="eventTownImage" Source="town.png" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                    <Label Style="{StaticResource casualtext}" x:Name="eventTownLabel" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                    <Image x:Name="eventPlaceImage" Source="eventmarker.png" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                    <Label Style="{StaticResource casualtext}" x:Name="eventPlaceLabel" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                    <Image x:Name="eventFromImage" Source="datefrom.png" Grid.Row="3" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                    <Label Style="{StaticResource casualtext}" x:Name="eventFromLabel" Grid.Column="1" Grid.Row="3" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                    <Image x:Name="eventToImage" Source="dateto.png" Grid.Row="4" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                    <Label Style="{StaticResource casualtext}" x:Name="eventToLabel" Grid.Column="1" Grid.Row="4" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                    <StackLayout Margin="20,0,20,0" Grid.ColumnSpan="2" Grid.Row="5" x:Name="eventStack"></StackLayout>
+                    <Button Style="{StaticResource button}" x:Name="GetDirectionPlaceButton" Text="Get direction to the event place" Clicked="GetDirectionPlaceButton_Clicked" Grid.ColumnSpan="2" Grid.Row="6"></Button>
+                    <StackLayout Margin="20,0,20,0" Grid.ColumnSpan="2" Grid.Row="7" x:Name="meetStack"></StackLayout>
+                    <Button Style="{StaticResource button}" x:Name="GetDirectionMeetingButton" Text="Get direction to the meeting place" Clicked="GetDirectionMeetingButton_Clicked" Grid.ColumnSpan="2" Grid.Row="8"></Button>
+                    <Image x:Name="howManyImage" Source="graph.png" Grid.Row="9" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Image>
+                    <Label Style="{StaticResource casualtext}" x:Name="howManyLabel" Grid.Column="1" Grid.Row="9" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                </Grid>
+                <Button Style="{StaticResource button}" x:Name="submitordeleteButton" Clicked="submitordeleteButton_Clicked"></Button>
+                <Label Style="{StaticResource headertwo}" x:Name="whoattendedLabelText" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+                <ListView RowHeight="80" HorizontalOptions="Center" VerticalOptions="StartAndExpand" IsPullToRefreshEnabled="True" ItemTapped="attendedListView_ItemTapped" BackgroundColor="Transparent" ItemsSource="{Binding attendedUserCollection}" x:Name="attendedListView">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="65"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <!--<Image Grid.RowSpan="2" Grid.Column="0" Source="{Binding PROFILEPICTURE, Converter={StaticResource BytesToImageConverter}}"></Image>-->
+                                    <Image HorizontalOptions="Start" VerticalOptions="Center" Margin="20,0,0,0" HeightRequest="50" WidthRequest="50" Grid.Row="0" Grid.Column="0" Source="{Binding PROFILEPICTURE}"></Image>
+                                    <!--<controls:CircleImage Margin="20,0,0,0" Grid.Row="0" Grid.Column="0" Source="{Binding PROFILEPICTURE}" Aspect="AspectFill">
+                                        <controls:CircleImage.WidthRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="Android, iOS">65</On>
+                                                <On Platform="WinPhone">45</On>
+                                            </OnPlatform>
+                                        </controls:CircleImage.WidthRequest>
+                                        <controls:CircleImage.HeightRequest>
+                                            <OnPlatform x:TypeArguments="x:Double">
+                                                <On Platform="Android, iOS">65</On>
+                                                <On Platform="WinPhone">45</On>
+                                            </OnPlatform>
+                                        </controls:CircleImage.HeightRequest>
+                                    </controls:CircleImage>-->
+                                    <Label Style="{StaticResource casualtext}" Text="{Binding FIRSTNAME}" Grid.Row="0" Grid.Column="1" HorizontalOptions="Start" VerticalOptions="Center"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout VerticalOptions="EndAndExpand">
+            <Grid x:Name="bottomGrid" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Grid.Column="0" Grid.Row="0" Source="home.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="homeImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="1" Grid.Row="0" Source="add.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="addImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_1"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="calendar.png" Grid.Column="2" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" x:Name="joinedImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_2"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="3" Grid.Row="0" Source="hashtags.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="hashtagsImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_3"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="4" Grid.Row="0" Source="settings.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="settingsImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_4"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

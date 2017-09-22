@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InvMe_.CreateEvents.CreateEvent"
+             Style="{StaticResource contentpage}"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
+    <StackLayout>
+        <StackLayout IsVisible="True" x:Name="indicatorStackLayout" HorizontalOptions="Center" VerticalOptions="Center">
+            <ActivityIndicator x:Name="activityIndicator" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
+            <Label Margin="20,0,20,0" x:Name="loadingLabel" Style="{StaticResource comment}" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </StackLayout>
+        <ScrollView>
+            <StackLayout IsVisible="True" x:Name="simpleStackLayout">
+                <Label Margin="20,0,20,0" x:Name="updateWelcome" Style="{StaticResource applicationtitle}" HorizontalOptions="Center"></Label>
+                <Label Margin="20,0,20,0" x:Name="eventNameLabel" Style="{StaticResource comment}"></Label>
+                <Entry Margin="20,0,20,0" x:Name="eventNameEntry" Style="{StaticResource entrystryle}"></Entry>
+                <Label Margin="20,0,20,0" x:Name="whenbeginLabel" Style="{StaticResource comment}"></Label>
+                <DatePicker Margin="20,0,20,0" x:Name="whenbegindatePicker" Style="{StaticResource pickerstryle}"></DatePicker>
+                <TimePicker Margin="20,0,20,0" x:Name="beginclock" Style="{StaticResource timepickerstryle}"></TimePicker>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Margin="20,0,20,0" Grid.Column="0" x:Name="notmatterhowlongLabel" Style="{StaticResource comment}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                    <Switch Margin="20,0,20,0" Grid.Column="1" x:Name="nomatterHowLong" Toggled="NomatterHowLong_Toggled" HorizontalOptions="End" VerticalOptions="Center"></Switch>
+                </Grid>
+                <Label Margin="20,0,20,0" x:Name="whenendLabel" Style="{StaticResource comment}"></Label>
+                <DatePicker Margin="20,0,20,0" x:Name="enddatePicker" Style="{StaticResource pickerstryle}"></DatePicker>
+                <TimePicker Margin="20,0,20,0" x:Name="endclock" Style="{StaticResource timepickerstryle}"></TimePicker>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Margin="20,0,20,0" Grid.Column="0" x:Name="onlineEventLabel" Style="{StaticResource comment}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                    <Switch Margin="20,0,20,0" x:Name="onlineEventSwitch" Grid.Column="1" Toggled="OnlineEventSwitch_Toggled" HorizontalOptions="End" VerticalOptions="Center"></Switch>
+                </Grid>
+                <Label Margin="20,0,20,0" x:Name="meetingLabel" Style="{StaticResource comment}"></Label>
+                <StackLayout Margin="20,0,20,0" x:Name="meetStack"></StackLayout>
+                <Label Margin="20,0,20,0" x:Name="eventLabel" Style="{StaticResource comment}"></Label>
+                <StackLayout Margin="20,0,20,0" x:Name="eventStack"></StackLayout>
+                <Label Margin="20,0,20,0" x:Name="eventTownLabel" Style="{StaticResource comment}"></Label>
+                <Entry Margin="20,0,20,0" x:Name="eventTownEntry" Style="{StaticResource entrystryle}"></Entry>
+                <Label Margin="20,0,20,0" x:Name="eventPlaceLabel" Style="{StaticResource comment}"></Label>
+                <Entry Margin="20,0,20,0" x:Name="eventPlaceEntry" Style="{StaticResource entrystryle}"></Entry>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Margin="20,0,20,0" Grid.Column="0" x:Name="enyoneLabel" Style="{StaticResource comment}" HorizontalOptions="Start" VerticalOptions="Center"></Label>
+                    <Switch Margin="20,0,20,0" Grid.Column="1" x:Name="enyoneSwitch" Toggled="EnyoneSwitch_Toggled" HorizontalOptions="End" VerticalOptions="Center"></Switch>
+                </Grid>
+                <Label Margin="20,0,20,0" Grid.Column="0" x:Name="howmanyPersonLabel" Style="{StaticResource comment}"></Label>
+                <Entry Margin="20,0,20,0" Grid.Column="1" x:Name="howmanyPersonEntry" Style="{StaticResource entrystryle}"></Entry>
+                <Button x:Name="submitButton" Style="{StaticResource button}" Clicked="SubmitButton_Clicked"></Button>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout VerticalOptions="EndAndExpand">
+            <Grid x:Name="bottomGrid" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Grid.Column="0" Grid.Row="0" Source="home.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="homeImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="1" Grid.Row="0" Source="add.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="addImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_1"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Source="calendar.png" Grid.Column="2" Grid.Row="0" HorizontalOptions="Center" VerticalOptions="Center" x:Name="joinedImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_2"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="3" Grid.Row="0" Source="hashtags.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="hashtagsImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_3"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image Grid.Column="4" Grid.Row="0" Source="settings.png" HorizontalOptions="Center" VerticalOptions="Center" x:Name="settingsImage">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer 
+                        Tapped="TapGestureRecognizer_Tapped_4"
+                        NumberOfTapsRequired="1"
+                        ></TapGestureRecognizer>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Grid>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

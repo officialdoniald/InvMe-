@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="InvMe_.Register.SignUp"
+             Style="{StaticResource contentpage}">
+    <StackLayout>
+        <StackLayout IsVisible="False" x:Name="indicatorStackLayout" HorizontalOptions="Center" VerticalOptions="Center">
+            <ActivityIndicator x:Name="activityIndicator" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
+            <Label Margin="20,0,20,0" x:Name="loadingLabel" Style="{StaticResource comment}" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </StackLayout>
+        <ScrollView>
+            <StackLayout IsVisible="True" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" x:Name="mainStackLayout">
+                <Label x:Name="signupWelcome" Style="{StaticResource applicationtitle}" HorizontalOptions="Center"></Label>
+                <Entry x:Name="firstnameEntry" Style="{StaticResource entrystryle}"></Entry>
+                <Label x:Name="firstnameLabel" Style="{StaticResource comment}"></Label>
+                <Entry x:Name="lastnameEntry" Style="{StaticResource entrystryle}"></Entry>
+                <Label x:Name="lastnameLabel" Style="{StaticResource comment}"></Label>
+                <Entry Keyboard="Email" x:Name="emailEntry" Style="{StaticResource entrystryle}"></Entry>
+                <Label x:Name="emailLabel" Style="{StaticResource comment}"></Label>
+                <Entry x:Name="passwordEntry" Style="{StaticResource passwordentrystryle}"></Entry>
+                <Label x:Name="passwordLabel" Style="{StaticResource comment}"></Label>
+                <Entry x:Name="passwordagainEntry" Style="{StaticResource passwordentrystryle}"></Entry>
+                <Label x:Name="passwordagainLabel" Style="{StaticResource comment}"></Label>
+                <DatePicker Format="dd-MM-yyyy" x:Name="bornPicker" Style="{StaticResource pickerstryle}"></DatePicker>
+                <Label x:Name="bornLabel" Style="{StaticResource comment}"></Label>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" x:Name="takePhoto" Style="{StaticResource button}" Clicked="takePhoto_Clicked"></Button>
+                    <Button Grid.Column="1" x:Name="selectPhoto" Style="{StaticResource button}" Clicked="selectPhoto_Clicked"></Button>
+                </Grid>
+                <Image x:Name="imageFromDevice" Style="{StaticResource selectedPhoto}"></Image>
+                <Label x:Name="takeorselectaphotoLabel" Style="{StaticResource comment}"></Label>
+                <Button x:Name="sigupButton" Style="{StaticResource button}" Clicked="sigupButton_Clicked" Text="Sign Up"></Button>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>
