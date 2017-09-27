@@ -4,7 +4,7 @@
              x:Class="InvMe_.Settings.Profile.Profile"
              Style="{StaticResource contentpage}"
              >
-    <StackLayout>
+    <StackLayout Margin="0,20,0,0">
         <StackLayout IsVisible="True" x:Name="indicatorStackLayout" HorizontalOptions="Center" VerticalOptions="Center">
             <ActivityIndicator x:Name="activityIndicator" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
             <Label x:Name="loadingLabel" Style="{StaticResource comment}" HorizontalOptions="Center" VerticalOptions="Center"></Label>

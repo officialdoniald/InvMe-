@@ -365,7 +365,8 @@ namespace InvMe_.EventDescription
             }
             
             attendedListView.ItemsSource = attendedUserCollection;
-
+            mainStackLayout.IsVisible = true;
+            generalSackLayout.IsVisible = true;
             indicatorStackLayout.IsVisible = false;
         }
 

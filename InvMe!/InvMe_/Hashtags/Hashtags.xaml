@@ -4,7 +4,7 @@
              Style="{StaticResource contentpage}"
              x:Class="InvMe_.Hashtags.Hashtags">
 
-    <StackLayout>
+    <StackLayout Margin="0,20,0,0">
         <StackLayout IsVisible="True" x:Name="indicatorStackLayout" HorizontalOptions="Center" VerticalOptions="Center">
             <ActivityIndicator x:Name="activityIndicator" HorizontalOptions="Center" VerticalOptions="Center"></ActivityIndicator>
             <Label Margin="20,0,20,0" x:Name="loadingLabel" Style="{StaticResource comment}" HorizontalOptions="Center" VerticalOptions="Center"></Label>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="58147Doniald.InvMe" Publisher="CN=88245A3B-EB70-4DFA-A7EF-A40E8CF32C52" Version="1.1.0.0" />
+  <Identity Name="58147Doniald.InvMe" Publisher="CN=88245A3B-EB70-4DFA-A7EF-A40E8CF32C52" Version="1.1.2.0" />
   <mp:PhoneIdentity PhoneProductId="e8af54e0-66fe-4eb2-9613-5d08df679454" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>InvMe</DisplayName>

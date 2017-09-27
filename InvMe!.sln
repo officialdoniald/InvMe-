@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvMe_.Android", "InvMe!\InvMe_.Android\InvMe_.Android.csproj", "{8170393B-494A-4916-AA09-7CC017A38CAC}"
 EndProject
@@ -238,8 +238,8 @@ Global
 		{26F82077-FDD8-43AD-AEB2-ADD5AA1A6DD5}.Ad-Hoc|ARM.ActiveCfg = Ad-Hoc|iPhone
 		{26F82077-FDD8-43AD-AEB2-ADD5AA1A6DD5}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
 		{26F82077-FDD8-43AD-AEB2-ADD5AA1A6DD5}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
-		{26F82077-FDD8-43AD-AEB2-ADD5AA1A6DD5}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Ad-Hoc|iPhoneSimulator
-		{26F82077-FDD8-43AD-AEB2-ADD5AA1A6DD5}.Ad-Hoc|iPhoneSimulator.Build.0 = Ad-Hoc|iPhoneSimulator
+		{26F82077-FDD8-43AD-AEB2-ADD5AA1A6DD5}.Ad-Hoc|iPhoneSimulator.ActiveCfg = AppStore|iPhoneSimulator
+		{26F82077-FDD8-43AD-AEB2-ADD5AA1A6DD5}.Ad-Hoc|iPhoneSimulator.Build.0 = AppStore|iPhoneSimulator
 		{26F82077-FDD8-43AD-AEB2-ADD5AA1A6DD5}.Ad-Hoc|x64.ActiveCfg = Ad-Hoc|iPhone
 		{26F82077-FDD8-43AD-AEB2-ADD5AA1A6DD5}.Ad-Hoc|x86.ActiveCfg = Ad-Hoc|iPhone
 		{26F82077-FDD8-43AD-AEB2-ADD5AA1A6DD5}.AppStore|Any CPU.ActiveCfg = AppStore|iPhone
